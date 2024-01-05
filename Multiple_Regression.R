@@ -1,32 +1,30 @@
-
+#Importing libraries and data
 rm(list=ls())
 library(rio)
 library(moments)
 car_data=import("6304 Module 5 Assignment Data.xlsx")
 
-
+#Preprocessing
 colnames(car_data)=tolower(make.names(colnames(car_data)))
-
 car_dataset = subset(car_data, car_data$model.year <=76 & car_data$cylinders)
-
 set.seed(99718118)
-
 car_sample=car_data[sample(nrow(car_data),100),]
-
 car_sample$model.year=as.factor(car_sample$model.year)
-
 car_sample$cylinders=as.factor(car_sample$cylinders)
-str(car_sample)
 
+#Analysis
+str(car_sample)
 mean(car_sample$mpg)
 mean(car_sample$cubic.inches)
-summary(model)
+
+#Model Fitting
 model=lm(formula = car_sample$mpg ~ car_sample$cubic.inches + car_sample$horsepower + 
            car_sample$weight, data = car_sample)
 summary(model)
+#Confidence intervel
 confint(model)
 
-
+#LINE assumptions of regression
 par(mfrow=c(2,2))
  # Linearity
   
@@ -60,7 +58,9 @@ par(mfrow=c(2,2))
 
  abline(0,0,lwd=3,col="red")
 
- 
+
+
+#7.Using  multiple regression model from Part 3 above, introducing the Cylinders variable into the model.
  car_sample$cylinders=relevel(car_sample,ref = "8")
  
  model4=lm(car_sample$mpg~car_sample$cubic.inches + car_sample$horsepower + car_sample$weight + car_sample$cylinders, data=car_sample)
