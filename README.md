@@ -8,3 +8,6 @@ b. Only autos with Model Year of 1976 and earlier will be included.
 3. Then I have conducted a multiple regression analysis using the primary data set.  Using MPG as the dependent variable and Cubic Inches, Horsepower, and Weight as independent variables.
 4. Then I have  determined whether the model appears to be in conformity with the LINE assumptions of regression or not.
 5. Using your multiple regression model from Part 3 above, I have introduced the Cylinders variable into the model.  Reset the levels of the Cylinders variable such that “8” is the base case.
+
+
+Time Series
